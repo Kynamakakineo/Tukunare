@@ -1,0 +1,276 @@
+/* Reset Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background: url('/public/img/background.png') center center / cover no-repeat fixed;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Hotbar Superior */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.nav-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #00ec00;
+}
+
+/* Destaque do Botão Ativo */
+.btn-resgate {
+    border: 2px solid #00ec00;
+    padding: 6px 18px;
+    border-radius: 20px;
+    color: #00ec00 !important;
+    box-shadow: 0 0 10px rgba(0, 236, 0, 0.2);
+}
+
+/* Estrutura de Divisão */
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding-top: 70px;
+}
+
+/* Lado Esquerdo - Sidebar */
+.sidebar {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.logo-box {
+    width: 100%;
+    max-width: 320px;
+}
+
+.sidebar-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+/* Lado Direito - Painel */
+.content-panel {
+    width: 65%;
+    background-color: rgba(15, 23, 30, 0.65);
+    backdrop-filter: blur(12px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+/* Cabeçalho do Painel */
+.panel-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.panel-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #4ca64c; /* Verde floresta combinando com o tema */
+    margin-bottom: 10px;
+}
+
+.page-instructions {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #c9d1d6;
+    max-width: 550px;
+    margin: 0 auto;
+    text-transform: uppercase; /* Mantém o estilo em caixa alta do seu rascunho */
+    letter-spacing: 0.5px;
+}
+
+/* Área central do Cupom e Input */
+.coupon-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Input do Token */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group label {
+    font-size: 0.8rem;
+    color: #a0a5a8;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    background-color: #222c36;
+    color: #ffffff;
+    border: 1px solid #384756;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #00ec00;
+    box-shadow: 0 0 10px rgba(0, 236, 0, 0.3);
+}
+
+/* Card do Cupom Fiel ao Desenho */
+.coupon-card {
+    background-color: #e1ff5e; /* Cor verde-limão/amarela do rascunho */
+    color: #111111;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 3px solid #2b593f;
+}
+
+.coupon-header {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.coupon-body {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Simulação do quadradinho vermelho da logo das Americanas */
+.brand-logo {
+    background-color: #e60014; /* Vermelho Americanas */
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.coupon-details h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.coupon-details h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Estilização do Código de Barras fictício */
+.barcode-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Gerando as linhas do código de barras usando gradiente CSS puro */
+.barcode {
+    width: 80%;
+    height: 40px;
+    background: repeating-linear-gradient(
+        90deg,
+        #111,
+        #111 2px,
+        transparent 2px,
+        transparent 6px,
+        #111 6px,
+        #111 10px,
+        transparent 10px,
+        transparent 12px
+    );
+}
+
+.barcode-text {
+    font-size: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 1024px) {
+    body { overflow-y: auto; }
+    .main-wrapper { flex-direction: column; height: auto; }
+    .sidebar { width: 100%; height: 180px; padding: 20px; }
+    .logo-box { max-width: 160px; }
+    .content-panel { width: 100%; padding: 30px 20px; border-left: none; }
+    .page-title { font-size: 2.5rem; }
+    .coupon-card { padding: 15px; }
+    .barcode { width: 95%; }
+}

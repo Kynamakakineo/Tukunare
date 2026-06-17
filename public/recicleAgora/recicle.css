@@ -1,0 +1,262 @@
+/* Reset Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background: url('/public/img/background.png') center center / cover no-repeat fixed;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Hotbar Superior (Transparente e com efeito Blur) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.nav-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #00ec00;
+}
+
+/* Destaque do Botão Ativo na Hotbar */
+.btn-recicle {
+    border: 2px solid #00ec00;
+    padding: 6px 18px;
+    border-radius: 20px;
+    color: #00ec00 !important;
+    box-shadow: 0 0 10px rgba(0, 236, 0, 0.2);
+}
+
+/* Estrutura de Divisão Principal */
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding-top: 70px; /* Desconta a altura da hotbar */
+}
+
+/* Lado Esquerdo (Sidebar Invisível para o Logo respirar) */
+.sidebar {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.logo-box {
+    width: 100%;
+    max-width: 320px;
+}
+
+.sidebar-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+/* Lado Direito: Painel Escuro Semi-Transparente */
+.content-panel {
+    width: 65%;
+    background-color: rgba(15, 23, 30, 0.65); /* Escuro com opacidade */
+    backdrop-filter: blur(12px); /* Efeito de vidro jateado */
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+/* Cabeçalho do Painel */
+.panel-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.page-subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e0e0e0;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Formulário em Duas Colunas */
+.recycle-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Elementos de Input e Select */
+.form-group {
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #a0a5a8;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.recycle-form input, 
+.recycle-form select {
+    width: 100%;
+    background-color: #222c36; /* Fundo dos inputs igual ao modelo */
+    color: #ffffff;
+    border: 1px solid #384756;
+    padding: 14px;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Customização dos selects para adicionar a setinha customizada se quiser */
+.select-wrapper {
+    position: relative;
+}
+
+/* Efeito de foco nos Inputs (Estilo Hacker/Neon) */
+.recycle-form input:focus, 
+.recycle-form select:focus {
+    border-color: #00ec00;
+    box-shadow: 0 0 10px rgba(0, 236, 0, 0.3);
+}
+
+/* Remove o fundo padrão do autocomplete e mantém a cor do seu layout */
+.recycle-form input:-webkit-autofill,
+.recycle-form input:-webkit-autofill:hover, 
+.recycle-form input:-webkit-autofill:focus,
+.recycle-form select:-webkit-autofill,
+.recycle-form select:-webkit-autofill:hover,
+.recycle-form select:-webkit-autofill:focus {
+    /* Preenche o fundo com a cor exata do seu input usando um shadow interno */
+    -webkit-box-shadow: 0 0 0px 1000px #222c36 inset !important;
+    
+    /* Mantém a cor do texto branca */
+    -webkit-text-fill-color: #ffffff !important;
+    
+    /* Mantém a transição suave caso mude de cor */
+    transition: background-color 5000s ease-in-out 0s;
+}
+/* Estilo da Seção de Pontos de Coleta */
+.collect-points {
+    margin-bottom: 25px;
+}
+
+.collect-points h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.collect-points p {
+    font-size: 0.85rem;
+    color: #a0a5a8;
+    margin-bottom: 12px;
+}
+
+.collect-points ul {
+    list-style: none;
+}
+
+.collect-points li {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.collect-points li span {
+    color: #4ca64c; /* Verde mais suave para a palavra ECOHARD */
+    font-weight: 700;
+}
+
+/* Botão de Envio (Estilo idêntico ao "Descubra Nossa Linha") */
+.btn-confirmar {
+    background-color: #4ca64c;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 25px; /* Arredondado igual ao botão central da home */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    margin-top: auto; /* Alinha o botão na parte inferior da coluna */
+}
+
+.btn-confirmar:hover {
+    background-color: #3b873b;
+    transform: translateY(-2px);
+}
+
+/* Responsividade para Telas Pequenas (Celulares) */
+@media (max-width: 1024px) {
+    body { overflow-y: auto; }
+    .main-wrapper { flex-direction: column; height: auto; }
+    .sidebar { width: 100%; height: 200px; padding: 20px; }
+    .logo-box { max-width: 180px; }
+    .content-panel { width: 100%; padding: 30px 20px; border-left: none; }
+    .recycle-form { grid-template-columns: 1fr; gap: 10px; }
+}

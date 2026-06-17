@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHard - Recicle Agora</title>
+    <link rel="stylesheet" href="recicle.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <nav class="nav-container">
+            <a href="/public/index.html">HOME PEIXE</a>
+            <a href="/public/sobreNos/sobre.html">SOBRE NÓS</a>
+            <a href="/public/contato/contato.html">CONTATO/SAC</a>
+            <a href="/public/recicleAgora/recicleAgora.html">RECICLE AGORA</a>
+            <a href="/public/resgate/resgate.html">RESGATE</a>
+        </nav>
+    </header>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar">
+            <div class="logo-box">
+                <img src="/public/img/logo-ecohard.png" alt="EcoHard Logo" class="sidebar-logo">
+            </div>
+        </aside>
+
+        <main class="content-panel">
+            <div class="panel-header">
+                <h1 class="page-title">RECICLE AGORA</h1>
+                <p class="page-subtitle">REVELE O FUTURO DO HARDWARE COM A ECOHARD.</p>
+            </div>
+            
+            <form class="recycle-form">
+                
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="componentes">COMPONENTES INTERNOS</label>
+                        <div class="select-wrapper">
+                            <select id="componentes">
+                                <option value="" disabled selected>Selecionar...</option>
+                                <option value="gpu">Placa de Vídeo (GPU)</option>
+                                <option value="cpu">Processador (CPU)</option>
+                                <option value="ram">Memória RAM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="perifericos">PERIFÉRICOS</label>
+                        <div class="select-wrapper">
+                            <select id="perifericos">
+                                <option value="" disabled selected>Selecionar...</option>
+                                <option value="teclado">Teclado</option>
+                                <option value="mouse">Mouse</option>
+                                <option value="monitor">Monitor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">ESTADO DO ITEM</label>
+                        <div class="select-wrapper">
+                            <select id="estado">
+                                <option value="" disabled selected>Selecionar...</option>
+                                <option value="bom">Usado (Funcionando)</option>
+                                <option value="defeito">Com defeito / Quebrado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelo">ESPECIFIQUE O MODELO</label>
+                        <input type="text" id="modelo" placeholder="Ex: RX 7600, Teclado Mecânico...">
+                    </div>
+                </div>
+
+                <div class="form-column">
+                    <div class="collect-points">
+                        <h3>PONTO DE COLETA</h3>
+                        <p>Veja os pontos de coleta mais próximos.</p>
+                        <ul>
+                            <li><span>ECOHARD</span> GRAJAÚ</li>
+                            <li><span>ECOHARD</span> BUTANTÃ</li>
+                            <li><span>ECOHARD</span> CAPÃO REDONDO</li>
+                            <li><span>ECOHARD</span> ITAIM BIBI</li>
+                            <li><span>ECOHARD</span> TABOÃO DA SERRA</li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" class="btn-confirmar">Enviar</button>
+                </div>
+
+            </form>
+        </main>
+    </div>
+
+</body>
+</html>
