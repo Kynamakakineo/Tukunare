@@ -5,18 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoHard - Hardware Sustentável</title>
     <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
 </head>
 <body>
-
-    <header class="navbar">
-        <nav class="nav-container">
-            <a href="index.html">HOME PEIXE</a>
-            <a href="sobreNos/sobre.html">SOBRE NÓS</a>
-            <a href="contato/contato.html">CONTATO/SAC</a>
-            <a href="recicleAgora/recicleAgora.html">RECICLE AGORA</a>
-            <a href="resgate/resgate.html">RESGATE</a>
-        </nav>
-    </header>
 
     <main class="hero-section">
         <div class="hero-overlay"></div>
@@ -34,7 +25,7 @@
 
             <!-- TELA DE LOGIN CLEAN -->
             <div class="login-card-index">
-                <form action="#" method="POST" class="login-form">
+                <form action="#" onsubmit="login(event)" method="POST" class="login-form" >
                     <div class="input-group">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" placeholder="seu@email.com" required>
@@ -52,7 +43,7 @@
                         <a href="#" class="forgot-password">Esqueceu a senha?</a>
                     </div>
                     
-                    <button type="submit" class="btn-login">Entrar</button>
+                    <button type="submit" class="btn-login" id="btn-login">Entrar</button>
                 </form>
                 
                 <div class="login-footer">
