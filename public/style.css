@@ -1,4 +1,6 @@
-/* Configurações Globais e Reset */
+/* =========================================
+   Configurações Globais e Reset
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +16,9 @@ body, html {
     overflow-x: hidden;
 }
 
-/* Estilização da Hotbar (Navbar) */
+/* =========================================
+   Estilização da Hotbar (Navbar)
+   ========================================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -26,14 +30,13 @@ body, html {
     padding: 20px 0;
 }
 
-/* Centralizando os links na hotbar */
 .nav-container {
     max-width: 800px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px; /* Espaçamento igual entre as opções */
+    gap: 40px;
     padding: 0 20px;
 }
 
@@ -47,10 +50,9 @@ body, html {
 }
 
 .navbar a:hover {
-    color: #00ec00; /* Verde neon para o hover */
+    color: #00ec00;
 }
 
-/* Botão de Destaque na Hotbar */
 .btn-recicle {
     border: 2px solid #00ec00;
     padding: 8px 20px;
@@ -65,19 +67,21 @@ body, html {
     box-shadow: 0 0 15px rgba(0, 236, 0, 0.5);
 }
 
-/* Hero Section (Fundo com imagem) */
+/* =========================================
+   Hero Section (Fundo geral)
+   ========================================= */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh;
-    background: url('sua-imagem-da-agua.jpg') center center / cover no-repeat;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 80px; /* Espaço para a hotbar não cobrir o conteúdo */
+    padding-bottom: 40px;
 }
 
-/* Sombra sutil para destacar o texto branco */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -88,49 +92,54 @@ body, html {
     z-index: 1;
 }
 
-/* Conteúdo Principal Centralizado */
+/* =========================================
+   Layout Central (Textos + Login)
+   ========================================= */
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 850px;
-    padding: 0 20px;
-    margin-top: 60px; /* Margem para não bater na hotbar */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 40px; /* Espaço entre os dizeres e a tela de login */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Container do Logo Central */
-.logo-main-container {
-    margin-bottom: 25px; /* Espaço entre o logo e o título H1 */
+/* --- Agrupamento da Empresa (Logo e Textos) --- */
+.apresentacao-empresa {
+    text-align: center;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo-main {
-    max-width: 280px; /* Controla o tamanho do logo maior */
+    max-width: 280px;
     height: auto;
     display: block;
     filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6));
 }
 
-/* Textos da seção principal */
-.hero-content h1 {
-    font-size: 2.6rem;
+.apresentacao-empresa h1 {
+    font-size: 1.4rem;
     font-weight: 800;
     letter-spacing: 1px;
-    margin-bottom: 15px;
     text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
 }
 
-.hero-content p {
+.apresentacao-empresa p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #e0e0e0;
-    margin-bottom: 35px;
-    max-width: 700px;
     text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Botão de Chamada para Ação */
 .btn-cta {
     display: inline-block;
     background-color: #4ca64c;
@@ -143,6 +152,7 @@ body, html {
     letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .btn-cta:hover {
@@ -150,7 +160,123 @@ body, html {
     transform: translateY(-2px);
 }
 
-/* Ajustes Responsivos */
+/* =========================================
+   Cartão de Login Clean
+   ========================================= */
+.login-card-index {
+    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco translúcido */
+    backdrop-filter: blur(8px); /* Efeito de vidro mesclando com a imagem de fundo */
+    -webkit-backdrop-filter: blur(8px);
+    width: 100%;
+    max-width: 380px;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+.input-group input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.input-group input:focus {
+    border-color: #4ca64c;
+    box-shadow: 0 0 0 3px rgba(76, 166, 76, 0.2);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.remember-me {
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.forgot-password:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
+
+.btn-login {
+    background-color: #4ca64c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: #3b873b;
+    transform: translateY(-2px);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #555;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+}
+
+.login-footer a {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   Ajustes Responsivos
+   ========================================= */
 @media (max-width: 768px) {
     .nav-container {
         gap: 20px;
@@ -159,10 +285,13 @@ body, html {
     .logo-main {
         max-width: 200px;
     }
-    .hero-content h1 {
+    .apresentacao-empresa h1 {
         font-size: 1.8rem;
     }
-    .hero-content p {
+    .apresentacao-empresa p {
         font-size: 0.95rem;
+    }
+    .hero-content {
+        gap: 30px; /* Reduz o espaço no celular */
     }
 }
