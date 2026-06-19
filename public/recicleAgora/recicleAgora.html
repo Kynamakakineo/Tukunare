@@ -95,6 +95,43 @@
             </form>
         </main>
     </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. Mapeia os elementos do seu HTML pelos IDs corretos
+    const selectComponentes = document.getElementById("componentes");
+    const selectPerifericos = document.getElementById("perifericos");
+
+    // Função para gerenciar o estado dos campos
+    function gerenciarBloqueio() {
+        // Se houver algum valor selecionado em Componentes, desabilita Periféricos
+        if (selectComponentes.value !== "") {
+            selectPerifericos.disabled = true;
+            selectPerifericos.style.opacity = "0.5"; // Feedback visual de desabilitado
+            selectPerifericos.style.cursor = "not-allowed";
+        } 
+        // Se houver algum valor selecionado em Periféricos, desabilita Componentes
+        else if (selectPerifericos.value !== "") {
+            selectComponentes.disabled = true;
+            selectComponentes.style.opacity = "0.5";
+            selectComponentes.style.cursor = "not-allowed";
+        } 
+        // Se ambos estiverem vazios (na opção "Selecionar..."), libera os dois
+        else {
+            selectComponentes.disabled = false;
+            selectComponentes.style.opacity = "1";
+            selectComponentes.style.cursor = "default";
+            
+            selectPerifericos.disabled = false;
+            selectPerifericos.style.opacity = "1";
+            selectPerifericos.style.cursor = "default";
+        }
+    }
+
+    // 2. Adiciona o evento de escuta para mudanças ('change') em ambos os selects
+    selectComponentes.addEventListener("change", gerenciarBloqueio);
+    selectPerifericos.addEventListener("change", gerenciarBloqueio);
+});
+</script>  
 
 </body>
 </html>
