@@ -25,17 +25,75 @@ async function login(event) {
 
         if (dados.sucesso) {
 
+            // salva autenticação
+            localStorage.setItem("logado", "true");
+
             window.location.href =
                 "/recicleAgora/recicleAgora.html";
 
         } else {
 
             alert(dados.mensagem);
+
         }
 
     } catch (erro) {
 
         console.error(erro);
+
+        alert("Erro ao conectar ao servidor");
+
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| LOGOUT
+|--------------------------------------------------------------------------
+*/
+
+function logout() {
+
+    localStorage.removeItem("logado");
+
+    window.location.href = "/index.html";
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| PROTEGE AS PÁGINAS
+|--------------------------------------------------------------------------
+*/
+
+function verificarLogin() {
+
+    const logado =
+        localStorage.getItem("logado");
+
+    if (logado !== "true") {
+
+        window.location.href =
+            "/index.html";
+
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| SE JÁ ESTIVER LOGADO NÃO VOLTA PARA LOGIN
+|--------------------------------------------------------------------------
+*/
+
+function verificarJaLogado() {
+
+    const logado =
+        localStorage.getItem("logado");
+
+    if (logado === "true") {
+
+        window.location.href =
+            "/recicleAgora/recicleAgora.html";
 
     }
 }

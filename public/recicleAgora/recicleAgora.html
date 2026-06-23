@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoHard - Recicle Agora</title>
     <link rel="stylesheet" href="recicle.css">
+    <script src="/public/auth.js"></script>
 </head>
-<body>
+<body onload="verificarLogin()">
 
     <header class="navbar">
         <nav class="nav-container">
-            <a href="/public/sobreNos/sobre.html">SOBRE NÓS</a>
-            <a href="/public/contato/contato.html">CONTATO/SAC</a>
-            <a href="/public/recicleAgora/recicleAgora.html">RECICLE AGORA</a>
-            <a href="/public/resgate/resgate.html">RESGATE</a>
-            <a href="/public/index.html">EXIT PEIXE</a>
+            <a href="/sobreNos/sobre.html">SOBRE NÓS</a>
+            <a href="/contato/contato.html">CONTATO/SAC</a>
+            <a href="/recicleAgora/recicleAgora.html">RECICLE AGORA</a>
+            <a href="/resgate/resgate.html">RESGATE</a>
+            <a href="/index.html" onclick="logout()">EXIT PEIXE</a>
         </nav>
     </header>
 
@@ -22,7 +23,7 @@
         
         <aside class="sidebar">
             <div class="logo-box">
-                <img src="/public/img/logo-ecohard.png" alt="EcoHard Logo" class="sidebar-logo">
+                <img src="/img/logo-ecohard.png" alt="EcoHard Logo" class="sidebar-logo">
             </div>
         </aside>
 

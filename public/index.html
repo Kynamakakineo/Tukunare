@@ -4,51 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoHard - Hardware Sustentável</title>
+
     <link rel="stylesheet" href="style.css">
     <script src="auth.js"></script>
 </head>
-<body>
+
+<body onload="verificarJaLogado()">
 
     <main class="hero-section">
         <div class="hero-overlay"></div>
-        
+
         <div class="hero-content">
-            
-            <!-- AGRUPAMENTO DOS DIZERES DA EMPRESA -->
+
             <div class="apresentacao-empresa">
                 <div class="logo-main-container">
-                    <img src="/public/img/logo-ecohard.png" alt="EcoHard Logo" class="logo-main">
+                    <img src="/img/logo-ecohard.png"
+                         alt="EcoHard Logo"
+                         class="logo-main">
                 </div>
-                <h1>REVELE O FUTURO DO HARDWARE COM A ECOHARD.</h1>
-                <p>Nossas inovações unem desempenho de ponta com sustentabilidade real. Transforme o seu equipamento e ajude a preservar os ecossistemas aquáticos.</p>
+
+                <h1>
+                    REVELE O FUTURO DO HARDWARE COM A ECOHARD.
+                </h1>
+
+                <p>
+                    Nossas inovações unem desempenho de ponta com
+                    sustentabilidade real. Transforme o seu
+                    equipamento e ajude a preservar os
+                    ecossistemas aquáticos.
+                </p>
             </div>
 
-            <!-- TELA DE LOGIN CLEAN -->
             <div class="login-card-index">
-                <form action="#" onsubmit="login(event)" method="POST" class="login-form" >
+
+                <form
+                    onsubmit="login(event)"
+                    class="login-form">
+
                     <div class="input-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="seu@email.com"
+                            required>
                     </div>
-                    
+
                     <div class="input-group">
                         <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="••••••••"
+                            required>
                     </div>
-                    
+
                     <div class="form-actions">
                         <label class="remember-me">
-                            <input type="checkbox" name="lembrar"> Lembrar-me
+                            <input type="checkbox" name="lembrar">
+                            Lembrar-me
                         </label>
-                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+
+                        <a href="#" class="forgot-password">
+                            Esqueceu a senha?
+                        </a>
                     </div>
-                    
-                    <button type="submit" class="btn-login" id="btn-login">Entrar</button>
+
+                    <button
+                        type="submit"
+                        class="btn-login">
+                        Entrar
+                    </button>
+
                 </form>
-                
+
                 <div class="login-footer">
-                    <p>Ainda não tem uma conta? <a href="#">Cadastre-se</a></p>
+                    <p>
+                        Ainda não tem uma conta?
+                        <a href="#">Cadastre-se</a>
+                    </p>
                 </div>
+
             </div>
 
         </div>

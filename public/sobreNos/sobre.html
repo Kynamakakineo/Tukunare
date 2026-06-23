@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoHard - Sobre Nós</title>
     <link rel="stylesheet" href="sobre.css">
+    <script src="/public/auth.js"></script>
 </head>
-<body>
+<body onload="verificarLogin()">
 
     <header class="navbar">
         <nav class="nav-container">
-            <a href="/public/sobreNos/sobre.html">SOBRE NÓS</a>
-            <a href="/public/contato/contato.html">CONTATO/SAC</a>
-            <a href="/public/recicleAgora/recicleAgora.html">RECICLE AGORA</a>
-            <a href="/public/resgate/resgate.html">RESGATE</a>
-            <a href="/public/index.html">EXIT PEIXE</a>
+            <a href="/sobreNos/sobre.html">SOBRE NÓS</a>
+            <a href="/contato/contato.html">CONTATO/SAC</a>
+            <a href="/recicleAgora/recicleAgora.html">RECICLE AGORA</a>
+            <a href="/resgate/resgate.html">RESGATE</a>
+            <a href="/index.html" onclick="logout()">EXIT PEIXE</a>
         </nav>
     </header>
 
@@ -22,7 +23,7 @@
         
         <aside class="sidebar">
             <div class="logo-box">
-                <img src="/public/img/logo-ecohard.png" alt="EcoHard Logo" class="sidebar-logo">
+                <img src="/img/logo-ecohard.png" alt="EcoHard Logo" class="sidebar-logo">
             </div>
         </aside>
 
@@ -59,19 +60,19 @@
                 <h3>NOSSO PROJETO EM AÇÃO</h3>
                 <div class="image-grid">
                     <div class="grid-item">
-                        <img src="/public/img/foto1.jpg" alt="Montagem de hardware reutilizado">
+                        <img src="/img/foto1.jpg" alt="Montagem de hardware reutilizado">
                         <span class="img-caption">Montagem</span>
                     </div>
                     <div class="grid-item">
-                        <img src="/public/img/foto2.jpg" alt="Processo de manutenção e limpeza">
+                        <img src="/img/foto2.jpg" alt="Processo de manutenção e limpeza">
                         <span class="img-caption">Restauração</span>
                     </div>
                     <div class="grid-item">
-                        <img src="/public/img/foto3.jpg" alt="Computador funcional montado">
+                        <img src="/img/foto3.jpg" alt="Computador funcional montado">
                         <span class="img-caption">Setup Funcional</span>
                     </div>
                     <div class="grid-item">
-                        <img src="/public/img/foto4.jpg" alt="Conscientização sobre e-lixo">
+                        <img src="/img/foto4.jpg" alt="Conscientização sobre e-lixo">
                         <span class="img-caption">Garimpo de peças</span>
                     </div>
                 </div>
