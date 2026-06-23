@@ -1,55 +1,41 @@
-//passo o evento por parâmetro pq eu sei que
-//que vai chamar é o form
-function login(event){
-    event.preventDefault(); //Previne o recarregamento da página
-    const email = getElementValue("email");
-    const senha = getElementValue("senha");
-    const warning_username = document.getElementById("warning-username");
+async function login(event) {
 
-    // if(email.length <4)
-    //     warning_username.style.display = "inline";
-    // else
-    //     warning_username.style.display = "none";
+    event.preventDefault();
 
-    if(email === "admin@adm.com" &&
-        senha === "123"
-    ){
-        //vai ser como se fosse um token
-        //localStorage.setItem("logado", "true");
-        window.location.href = "./recicleAgora/recicleAgora.html"
-        return true;
+    const email =
+        document.getElementById("email").value;
+
+    const senha =
+        document.getElementById("senha").value;
+
+    try {
+
+        const resposta = await fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                senha
+            })
+        });
+
+        const dados = await resposta.json();
+
+        if (dados.sucesso) {
+
+            window.location.href =
+                "/recicleAgora/recicleAgora.html";
+
+        } else {
+
+            alert(dados.mensagem);
+        }
+
+    } catch (erro) {
+
+        console.error(erro);
+
     }
-    else{
-        showErrorLoginMessage();
-        return false;
-    }
-}
-
-function logout(){
-    //localStorage.removeItem("logado");
-    window.location.href = "login.html"
-}
-
-// function verificarLogado(){
-//     if(localStorage.getItem("logado") === "true")
-//         return true;
-//     else 
-//         return false;
-// }
-
-function getElementValue(element){
-    return document.getElementById(element).value;
-}
-
-function showErrorLoginMessage() {
-    setElementText("mensagem", "Usuário e/ou senha incorretos");
-    setElementDisplay("overlay","flex");
-}
-
-function setElementText(element, text){
-    document.getElementById(element).textContent = text;
-}
-
-function setElementDisplay(element, display){
-    document.getElementById(element).style.display = display;
 }
