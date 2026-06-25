@@ -2,11 +2,8 @@ async function login(event) {
 
     event.preventDefault();
 
-    const email =
-        document.getElementById("email").value;
-
-    const senha =
-        document.getElementById("senha").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
 
     try {
 
@@ -25,11 +22,10 @@ async function login(event) {
 
         if (dados.sucesso) {
 
-            // salva autenticação
+            // Salva autenticação
             localStorage.setItem("logado", "true");
 
-            window.location.href =
-                "/recicleAgora/recicleAgora.html";
+            window.location.href = "/recicleAgora/recicleAgora.html";
 
         } else {
 
@@ -40,7 +36,6 @@ async function login(event) {
     } catch (erro) {
 
         console.error(erro);
-
         alert("Erro ao conectar ao servidor");
 
     }
@@ -68,13 +63,11 @@ function logout() {
 
 function verificarLogin() {
 
-    const logado =
-        localStorage.getItem("logado");
+    const logado = localStorage.getItem("logado");
 
     if (logado !== "true") {
 
-        window.location.href =
-            "/index.html";
+        window.location.href = "/index.html";
 
     }
 }
@@ -87,13 +80,11 @@ function verificarLogin() {
 
 function verificarJaLogado() {
 
-    const logado =
-        localStorage.getItem("logado");
+    const logado = localStorage.getItem("logado");
 
     if (logado === "true") {
 
-        window.location.href =
-            "/recicleAgora/recicleAgora.html";
+        window.location.href = "/recicleAgora/recicleAgora.html";
 
     }
 }
