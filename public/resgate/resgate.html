@@ -6,6 +6,7 @@
     <title>EcoHard - Resgate</title>
     <link rel="stylesheet" href="resgate.css">
     <script src="/auth.js"></script>
+    <script src="resgate.js" defer></script>
 </head>
 <body onload="verificarLogin()">
 
@@ -41,20 +42,22 @@
                 <div class="input-group">
                     <label for="token-input">Digite seu cupom abaixo</label>
                     <input type="text" id="token-input" placeholder="Cole seu token aqui...">
+                    <button id="btn-resgatar" class="btn-resgate">Resgatar</button>
+            
+        
                 </div>
-
-                <div class="coupon-card">
+                    <div class="coupon-card" id="coupon-card" style="display:none;">
                     <div class="coupon-header">CUPOM</div>
                     <div class="coupon-body">
-                        <div class="brand-logo">a</div>
+                        <div class="brand-logo"><img id="cupom-logo" src="" alt="Logo da empresa"></div>
                         <div class="coupon-details">
-                            <h3>Vale 20 (vinte reais) nas</h3>
-                            <h2>lojas americanas</h2>
+                            <h3 id="cupom-valor"></h3>
+                            <h2 id="cupom-loja"></h2>
                         </div>
                     </div>
                     <div class="barcode-wrapper">
                         <div class="barcode"></div>
-                        <span class="barcode-text">HLFF876AAOP8LCRYA96</span>
+                        <span class="barcode-text" id="cupom-codigo"></span>
                     </div>
                 </div>
             </div>

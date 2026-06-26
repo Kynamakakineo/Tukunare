@@ -49,13 +49,16 @@ body, html {
     color: #00ec00;
 }
 
-/* Destaque do Botão Ativo */
+/* Botão ativo */
 .btn-resgate {
-    border: 2px solid #00ec00;
-    padding: 6px 18px;
-    border-radius: 20px;
-    color: #00ec00 !important;
-    box-shadow: 0 0 10px rgba(0, 236, 0, 0.2);
+    margin-top: 20px;
+    border-color: #00ec0000;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #4ca64c;
 }
 
 /* Estrutura de Divisão */
@@ -173,9 +176,9 @@ body, html {
     box-shadow: 0 0 10px rgba(0, 236, 0, 0.3);
 }
 
-/* Card do Cupom Fiel ao Desenho */
+
 .coupon-card {
-    background-color: #e1ff5e; /* Cor verde-limão/amarela do rascunho */
+    background-color: #fffffff1; 
     color: #111111;
     border-radius: 15px;
     padding: 20px;
@@ -205,18 +208,20 @@ body, html {
 
 /* Simulação do quadradinho vermelho da logo das Americanas */
 .brand-logo {
-    background-color: #e60014; /* Vermelho Americanas */
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: sans-serif;
-    width: 50px;
-    height: 50px;
+ 
+    width: 90px;
+    height: 90px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.brand-logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
 }
 
 .coupon-details h3 {
