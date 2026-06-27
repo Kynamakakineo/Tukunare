@@ -88,3 +88,11 @@ function verificarJaLogado() {
 
     }
 }
+
+if (typeof module !== "undefined") {
+    module.exports = {
+        logout,
+        verificarLogin,
+        verificarJaLogado
+    };
+}

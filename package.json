@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -24,5 +24,11 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mysql2": "^3.22.5"
+  },
+  "devDependencies": {
+    "chromedriver": "^150.0.0",
+    "jest": "^30.4.2",
+    "selenium-webdriver": "^4.45.0",
+    "supertest": "^7.2.2"
   }
 }
