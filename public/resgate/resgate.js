@@ -4,7 +4,7 @@ const cupons = {
         loja: "Lojas Americanas",
         valor: "Vale R$20,00 nas",
         codigo: "HLFF876AAOP8LCRYA96",
-        logo: "https://logodownload.org/wp-content/uploads/2014/09/americanas-logo-8.png",
+        logo: "https://tse1.mm.bing.net/th/id/OIP.f7VLZbgU0yGuNXnpHumc5QHaMW?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
         utilizado: false
     },
 

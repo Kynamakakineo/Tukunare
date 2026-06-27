@@ -17,13 +17,16 @@ body, html {
 /* Hotbar Superior */
 .navbar {
     position: fixed;
+    height: 70px;
     top: 0;
+    display: flex;
     left: 0;
     width: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
     backdrop-filter: blur(4px);
     z-index: 1000;
-    padding: 20px 0;
+    padding:0;
+    align-items: center;
 }
 
 .nav-container {
