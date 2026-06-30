@@ -2,22 +2,42 @@ require("dotenv").config();
 
 const mysql = require("mysql2");
 
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-});
+const fs = require("fs");
 
-db.connect((err) => {
-    if (err) {
-        console.error("Erro ao conectar ao banco:");
-        console.error(err);
-        return;
+const db = mysql.createConnection({
+
+    host: process.env.DB_HOST,
+
+    port: process.env.DB_PORT,
+
+    user: process.env.DB_USER,
+
+    password: process.env.DB_PASSWORD,
+
+    database: process.env.DB_NAME,
+
+    ssl: {
+
+        ca: fs.readFileSync("./ca.pem")
+
     }
 
-    console.log("✅ Banco conectado com sucesso!");
+});
+
+db.connect((erro) => {
+
+    if (erro) {
+
+        console.error("Erro ao conectar:");
+
+        console.error(erro);
+
+        return;
+
+    }
+
+    console.log("Banco conectado com sucesso!");
+
 });
 
 module.exports = db;

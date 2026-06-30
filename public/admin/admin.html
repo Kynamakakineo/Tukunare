@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Administrativo - EcoHard</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+    <script src="/auth.js"></script>
+
+</head>
+
+<body onload="verificarAdministrador(); carregarUsuarios();">
+
+    <header class="navbar">
+
+        <nav class="nav-container">
+
+    <a href="/sobreNos/sobre.html">
+        SOBRE NÓS
+    </a>
+
+    <a href="/contato/contato.html">
+        CONTATO/SAC
+    </a>
+
+    <a href="/recicleAgora/recicleAgora.html">
+        RECICLE AGORA
+    </a>
+
+    <a href="/resgate/resgate.html">
+        RESGATE
+    </a>
+
+    <a href="javascript:void(0)" onclick="logout()">
+        SAIR
+    </a>
+
+</nav>
+
+    </header>
+
+    <main class="container">
+
+        <h1>Painel Administrativo</h1>
+
+        <section class="cadastro">
+
+            <h2>Cadastrar / Editar Usuário</h2>
+
+            <form id="formUsuario">
+
+                <input
+                    type="hidden"
+                    id="id">
+
+                <div class="grupo">
+
+                    <label>Nome</label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        required>
+
+                </div>
+
+                <div class="grupo">
+
+                    <label>E-mail</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        required>
+
+                </div>
+
+                <div class="grupo">
+
+                    <label>Senha</label>
+
+                    <input
+                        type="password"
+                        id="senha">
+
+                </div>
+
+                <div class="grupo">
+
+                    <label>Perfil</label>
+
+                    <select id="perfil">
+
+                        <option value="usuario">
+
+                            Usuário
+
+                        </option>
+
+                        <option value="admin">
+
+                            Administrador
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="botoes">
+
+                    <button
+                        type="button"
+                        onclick="salvarUsuario()">
+
+                        Salvar
+
+                    </button>
+
+                    <button
+                        type="reset">
+
+                        Limpar
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <section class="lista">
+
+            <h2>Usuários Cadastrados</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Nome</th>
+
+                        <th>E-mail</th>
+
+                        <th>Perfil</th>
+
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaUsuarios">
+
+                    <!-- O JavaScript irá preencher -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

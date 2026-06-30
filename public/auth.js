@@ -1,3 +1,9 @@
+/*
+|--------------------------------------------------------------------------
+| LOGIN
+|--------------------------------------------------------------------------
+*/
+
 async function login(event) {
 
     event.preventDefault();
@@ -24,8 +30,17 @@ async function login(event) {
 
             // Salva autenticação
             localStorage.setItem("logado", "true");
+            localStorage.setItem("perfil", dados.usuario.perfil);
 
-            window.location.href = "/recicleAgora/recicleAgora.html";
+            if (dados.usuario.perfil === "admin") {
+
+                window.location.href = "/admin/admin.html";
+
+            } else {
+
+                window.location.href = "/recicleAgora/recicleAgora.html";
+
+            }
 
         } else {
 
@@ -39,6 +54,7 @@ async function login(event) {
         alert("Erro ao conectar ao servidor");
 
     }
+
 }
 
 /*
@@ -49,7 +65,7 @@ async function login(event) {
 
 function logout() {
 
-    localStorage.removeItem("logado");
+    localStorage.clear();
 
     window.location.href = "/index.html";
 
@@ -70,6 +86,26 @@ function verificarLogin() {
         window.location.href = "/index.html";
 
     }
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| PROTEGE A PÁGINA DO ADMINISTRADOR
+|--------------------------------------------------------------------------
+*/
+
+function verificarAdministrador() {
+
+    const logado = localStorage.getItem("logado");
+    const perfil = localStorage.getItem("perfil");
+
+    if (logado !== "true" || perfil !== "admin") {
+
+        window.location.href = "/index.html";
+
+    }
+
 }
 
 /*
@@ -81,18 +117,58 @@ function verificarLogin() {
 function verificarJaLogado() {
 
     const logado = localStorage.getItem("logado");
+    const perfil = localStorage.getItem("perfil");
 
     if (logado === "true") {
 
-        window.location.href = "/recicleAgora/recicleAgora.html";
+        if (perfil === "admin") {
+
+            window.location.href = "/admin/admin.html";
+
+        } else {
+
+            window.location.href = "/recicleAgora/recicleAgora.html";
+
+        }
 
     }
+
 }
 
+/*
+|--------------------------------------------------------------------------
+| EXIBE O MENU ADMIN
+|--------------------------------------------------------------------------
+*/
+
+window.onload = () => {
+
+    const menu = document.getElementById("menuAdmin");
+
+    if (!menu) return;
+
+    if (localStorage.getItem("perfil") === "admin") {
+
+        menu.style.display = "inline";
+
+    }
+
+};
+
+/*
+|--------------------------------------------------------------------------
+| EXPORTAÇÃO PARA TESTES
+|--------------------------------------------------------------------------
+*/
+
 if (typeof module !== "undefined") {
+
     module.exports = {
+        login,
         logout,
         verificarLogin,
+        verificarAdministrador,
         verificarJaLogado
     };
+
 }
