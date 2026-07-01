@@ -6,6 +6,7 @@
   "scripts": {
   "test": "jest",
   "start": "node server.js",
+  "api.test": "jest tests/api.test.js",
   "testdb": "jest tests/db.test.js",
   "dev": "nodemon server.js"
 },
