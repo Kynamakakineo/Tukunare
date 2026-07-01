@@ -6,6 +6,7 @@
   "scripts": {
   "test": "jest",
   "start": "node server.js",
+  "testdb": "jest tests/db.test.js",
   "dev": "nodemon server.js"
 },
   "repository": {
