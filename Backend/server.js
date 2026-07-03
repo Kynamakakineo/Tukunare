@@ -520,6 +520,67 @@ app.delete("/usuarios/:id", (req, res) => {
 
 /*
 |--------------------------------------------------------------------------
+| REGISTRO DE RECICLAGEM (TABELA CORRIGIDA)
+|--------------------------------------------------------------------------
+*/
+app.post("/recicle-agora", (req, res) => {
+    const { componentes, perifericos, estado, modelo } = req.body;
+
+    // 1. Identifica a categoria e o item com base no que veio do formulário
+    let categoria = "";
+    let item = "";
+
+    if (componentes) {
+        categoria = "Componente Interno";
+        item = componentes;
+    } else if (perifericos) {
+        categoria = "Periférico";
+        item = perifericos;
+    }
+
+    // 2. Validação: garante que um item e a condição foram enviados
+    if (!item || !estado) {
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "Por favor, preencha as especificações básicas do item."
+        });
+    }
+
+    // 3. SQL mapeado exatamente com os nomes das colunas da sua tabela
+    const sql = `
+        INSERT INTO cadastros_componentes_unica (categoria, item, condicao, modelo) 
+        VALUES (?, ?, ?, ?)
+    `;
+
+    db.query(
+        sql, 
+        [
+            categoria,
+            item, 
+            estado, // Mapeia para a coluna 'condicao'
+            modelo ? modelo.trim() : "Não especificado"
+        ], 
+        (erro, resultado) => {
+            if (erro) {
+                console.log("=== ERRO AO INSERIR NO BANCO ===");
+                console.error(erro);
+                console.log("================================");
+                return res.status(500).json({
+                    sucesso: false,
+                    mensagem: "Erro interno ao salvar os dados no banco."
+                });
+            }
+
+            return res.json({
+                sucesso: true,
+                mensagem: "Item registrado para reciclagem com sucesso!"
+            });
+        }
+    );
+});
+
+/*
+|--------------------------------------------------------------------------
 | SERVIDOR
 |--------------------------------------------------------------------------
 */
