@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="/auth.js"></script>
     <script src="recicleAgora.js" defer></script>
 </head>
+
 <body onload="verificarLogin()">
 
     <header class="navbar">
@@ -21,7 +23,7 @@
     </header>
 
     <div class="main-wrapper">
-        
+
         <aside class="sidebar">
             <div class="logo-box">
                 <img src="/img/logo-ecohard.png" alt="EcoHard Logo" class="sidebar-logo">
@@ -33,9 +35,9 @@
                 <h1 class="page-title">RECICLE AGORA</h1>
                 <p class="page-subtitle">REVELE O FUTURO DO HARDWARE COM A ECOHARD.</p>
             </div>
-            
+
             <form class="recycle-form">
-                
+
                 <div class="form-column">
                     <div class="form-group">
                         <label for="componentes">COMPONENTES INTERNOS</label>
@@ -45,6 +47,13 @@
                                 <option value="gpu">Placa de Vídeo (GPU)</option>
                                 <option value="cpu">Processador (CPU)</option>
                                 <option value="ram">Memória RAM</option>
+                                <option value="motherboard">Placa-Mãe</option>
+                                <option value="psu">Fonte de Alimentação</option>
+                                <option value="hdd_ssd">Disco Rígido (HDD) / SSD</option>
+                                <option value="cooler">Cooler / Water Cooler</option>
+                                <option value="gabinete">Gabinete</option>
+                                <option value="placa_rede">Placa de Rede / Wi-Fi Interna</option>
+                            </select>
 
                             </select>
                         </div>
@@ -54,10 +63,20 @@
                         <label for="perifericos">PERIFÉRICOS</label>
                         <div class="select-wrapper">
                             <select id="perifericos">
-                                <option value="" selected>Selecionar...</option>
-                                <option value="teclado">Teclado</option>
-                                <option value="mouse">Mouse</option>
-                                <option value="monitor">Monitor</option>
+                                <select id="perifericos">
+                                    <option value="" selected>Selecionar...</option>
+                                    <option value="teclado">Teclado</option>
+                                    <option value="mouse">Mouse</option>
+                                    <option value="monitor">Monitor</option>
+                                    <option value="headset">Headset / Fone de Ouvido</option>
+                                    <option value="caixa_som">Caixas de Som</option>
+                                    <option value="webcam">Webcam</option>
+                                    <option value="microfone">Microfone Externo</option>
+                                    <option value="impressora">Impressora / Scanner</option>
+                                    <option value="gamepad">Controle / Joystick / Volante</option>
+                                    <option value="filtro_linha">Filtro de Linha / Estabilizador / Nobreak</option>
+                                    <option value="cabos">Cabos e Adaptadores (HDMI, DisplayPort, USB)</option>
+                                </select>
                             </select>
                         </div>
                     </div>
@@ -99,43 +118,44 @@
         </main>
 
     </div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. Mapeia os elementos do seu HTML pelos IDs corretos
-    const selectComponentes = document.getElementById("componentes");
-    const selectPerifericos = document.getElementById("perifericos");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. Mapeia os elementos do seu HTML pelos IDs corretos
+            const selectComponentes = document.getElementById("componentes");
+            const selectPerifericos = document.getElementById("perifericos");
 
-    // Função para gerenciar o estado dos campos
-    function gerenciarBloqueio() {
-        // Se houver algum valor selecionado em Componentes, desabilita Periféricos
-        if (selectComponentes.value !== "") {
-            selectPerifericos.disabled = true;
-            selectPerifericos.style.opacity = "0.5"; // Feedback visual de desabilitado
-            selectPerifericos.style.cursor = "not-allowed";
-        } 
-        // Se houver algum valor selecionado em Periféricos, desabilita Componentes
-        else if (selectPerifericos.value !== "") {
-            selectComponentes.disabled = true;
-            selectComponentes.style.opacity = "0.5";
-            selectComponentes.style.cursor = "not-allowed";
-        } 
-        // Se ambos estiverem vazios (na opção "Selecionar..."), libera os dois
-        else {
-            selectComponentes.disabled = false;
-            selectComponentes.style.opacity = "1";
-            selectComponentes.style.cursor = "default";
-            
-            selectPerifericos.disabled = false;
-            selectPerifericos.style.opacity = "1";
-            selectPerifericos.style.cursor = "default";
-        }
-    }
+            // Função para gerenciar o estado dos campos
+            function gerenciarBloqueio() {
+                // Se houver algum valor selecionado em Componentes, desabilita Periféricos
+                if (selectComponentes.value !== "") {
+                    selectPerifericos.disabled = true;
+                    selectPerifericos.style.opacity = "0.5"; // Feedback visual de desabilitado
+                    selectPerifericos.style.cursor = "not-allowed";
+                }
+                // Se houver algum valor selecionado em Periféricos, desabilita Componentes
+                else if (selectPerifericos.value !== "") {
+                    selectComponentes.disabled = true;
+                    selectComponentes.style.opacity = "0.5";
+                    selectComponentes.style.cursor = "not-allowed";
+                }
+                // Se ambos estiverem vazios (na opção "Selecionar..."), libera os dois
+                else {
+                    selectComponentes.disabled = false;
+                    selectComponentes.style.opacity = "1";
+                    selectComponentes.style.cursor = "default";
 
-    // 2. Adiciona o evento de escuta para mudanças ('change') em ambos os selects
-    selectComponentes.addEventListener("change", gerenciarBloqueio);
-    selectPerifericos.addEventListener("change", gerenciarBloqueio);
-});
-</script>  
+                    selectPerifericos.disabled = false;
+                    selectPerifericos.style.opacity = "1";
+                    selectPerifericos.style.cursor = "default";
+                }
+            }
+
+            // 2. Adiciona o evento de escuta para mudanças ('change') em ambos os selects
+            selectComponentes.addEventListener("change", gerenciarBloqueio);
+            selectPerifericos.addEventListener("change", gerenciarBloqueio);
+        });
+    </script>
 
 </body>
+
 </html>
