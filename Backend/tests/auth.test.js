@@ -1,56 +1,121 @@
-const {
-    verificarLogin,
-    verificarJaLogado
-} = require("../public/auth");
-
-// Mock do localStorag, cria um localStorage falso.
+// Mock do localStorage
 const localStorageMock = (() => {
+
     let store = {};
 
     return {
-        getItem: key => store[key] || null,
-        setItem: (key, value) => store[key] = value,
-        removeItem: key => delete store[key],
-        clear: () => store = {}
+
+        getItem: (key) => store[key] || null,
+
+        setItem: (key, value) => {
+            store[key] = value;
+        },
+
+        removeItem: (key) => {
+            delete store[key];
+        },
+
+        clear: () => {
+            store = {};
+        }
+
     };
+
 })();
 
 Object.defineProperty(global, "localStorage", {
     value: localStorageMock
 });
 
-// Mock do window
-delete global.window;
+// Mock do document
+global.document = {
 
-global.window = {
-    location: {
-        href: ""
-    }
+    getElementById: jest.fn(() => null)
+
 };
 
-describe("Auth", () => {
+// Mock do window
+global.window = {
+
+    location: {
+        href: ""
+    },
+
+    onload: null
+
+};
+
+// Importa somente depois dos mocks
+const {
+
+    verificarLogin,
+    verificarJaLogado,
+    verificarAdministrador
+
+} = require("../../Frontend/auth");
+
+describe("Autenticação", () => {
 
     beforeEach(() => {
+
         localStorage.clear();
+
         window.location.href = "";
+
     });
-//teste para verificar login se ele está logado.
-    test("Usuário não logado é redirecionado", () => {
+
+    test("Usuário não logado deve voltar para o login", () => {
 
         verificarLogin();
 
         expect(window.location.href).toBe("/index.html");
 
     });
-// teste para verificar se ele está logado e enviar para a pagina recicleAgora.
-    test("Usuário logado é redirecionado para Recicle Agora", () => {
+
+    test("Usuário comum logado vai para Recicle Agora", () => {
 
         localStorage.setItem("logado", "true");
+        localStorage.setItem("perfil", "usuario");
 
         verificarJaLogado();
 
         expect(window.location.href)
             .toBe("/recicleAgora/recicleAgora.html");
+
+    });
+
+    test("Administrador logado vai para Admin", () => {
+
+        localStorage.setItem("logado", "true");
+        localStorage.setItem("perfil", "admin");
+
+        verificarJaLogado();
+
+        expect(window.location.href)
+            .toBe("/admin/admin.html");
+
+    });
+
+    test("Usuário comum não pode acessar página do administrador", () => {
+
+        localStorage.setItem("logado", "true");
+        localStorage.setItem("perfil", "usuario");
+
+        verificarAdministrador();
+
+        expect(window.location.href)
+            .toBe("/index.html");
+
+    });
+
+    test("Administrador pode acessar página do administrador", () => {
+
+        localStorage.setItem("logado", "true");
+        localStorage.setItem("perfil", "admin");
+
+        verificarAdministrador();
+
+        expect(window.location.href).toBe("");
 
     });
 
