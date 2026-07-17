@@ -5,15 +5,19 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+ 
 body, html {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background: url('/img/background.png') center center / cover no-repeat fixed;
     color: #ffffff;
-    overflow: hidden;
+ 
+    overflow-x: hidden;
+    overflow-y: auto;
+ 
+    -webkit-overflow-scrolling: touch;
 }
-
+ 
 /* Hotbar Superior */
 .navbar {
     position: fixed;
@@ -28,17 +32,18 @@ body, html {
     padding:0;
     align-items: center;
 }
-
+ 
 .nav-container {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 0 20px;
+    width:100%;
+    max-width:800px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    padding:0 20px;
 }
-
+ 
 .navbar a {
     color: #ffffff;
     text-decoration: none;
@@ -46,12 +51,15 @@ body, html {
     font-weight: 600;
     letter-spacing: 1px;
     transition: color 0.3s ease;
+ 
+    white-space: nowrap;
+    flex-shrink: 0;
 }
-
+ 
 .navbar a:hover {
     color: #00ec00;
 }
-
+ 
 /* Botão ativo */
 .btn-resgate {
     margin-top: 20px;
@@ -63,7 +71,7 @@ body, html {
     font-weight: bold;
     background-color: #4ca64c;
 }
-
+ 
 /* Estrutura de Divisão */
 .main-wrapper {
     display: flex;
@@ -71,7 +79,7 @@ body, html {
     height: 100vh;
     padding-top: 70px;
 }
-
+ 
 /* Lado Esquerdo - Sidebar */
 .sidebar {
     width: 35%;
@@ -80,19 +88,19 @@ body, html {
     align-items: center;
     padding: 40px;
 }
-
+ 
 .logo-box {
     width: 100%;
     max-width: 320px;
 }
-
+ 
 .sidebar-logo {
     width: 100%;
     height: auto;
     display: block;
     filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6));
 }
-
+ 
 /* Lado Direito - Painel */
 .content-panel {
     width: 65%;
@@ -105,13 +113,13 @@ body, html {
     justify-content: center;
     overflow-y: auto;
 }
-
+ 
 /* Cabeçalho do Painel */
 .panel-header {
     text-align: center;
     margin-bottom: 30px;
 }
-
+ 
 .page-title {
     font-size: 3.5rem;
     font-weight: 800;
@@ -119,7 +127,7 @@ body, html {
     color: #ffffff;
     margin-bottom: 10px;
 }
-
+ 
 .panel-header h2 {
     font-size: 1.3rem;
     font-weight: 700;
@@ -127,7 +135,7 @@ body, html {
     color: #4ca64c; /* Verde floresta combinando com o tema */
     margin-bottom: 10px;
 }
-
+ 
 .page-instructions {
     font-size: 0.95rem;
     line-height: 1.6;
@@ -137,7 +145,7 @@ body, html {
     text-transform: uppercase; /* Mantém o estilo em caixa alta do seu rascunho */
     letter-spacing: 0.5px;
 }
-
+ 
 /* Área central do Cupom e Input */
 .coupon-container {
     width: 100%;
@@ -147,27 +155,27 @@ body, html {
     flex-direction: column;
     gap: 30px;
 }
-
+ 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #222 inset !important;
     -webkit-text-fill-color: white !important;
     border: 2px solid #555;
     caret-color: white;
 }
-
+ 
 /* Input do Token */
 .input-group {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
+ 
 .input-group label {
     font-size: 0.8rem;
     color: #a0a5a8;
     margin-bottom: 8px;
 }
-
+ 
 .input-group input {
     width: 100%;
     background-color: #222c36;
@@ -180,15 +188,15 @@ input:-webkit-autofill {
     outline: none;
     transition: all 0.3s;
 }
-
+ 
 .input-group input:focus {
     border-color: #00ec00;
     box-shadow: 0 0 10px rgba(0, 236, 0, 0.3);
 }
-
-
+ 
+ 
 .coupon-card {
-    background-color: #fffffff1; 
+    background-color: #fffffff1;
     color: #111111;
     border-radius: 15px;
     padding: 20px;
@@ -198,7 +206,7 @@ input:-webkit-autofill {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     border: 3px solid #2b593f;
 }
-
+ 
 .coupon-header {
     font-size: 1.4rem;
     font-weight: 800;
@@ -206,7 +214,7 @@ input:-webkit-autofill {
     margin-bottom: 15px;
     text-transform: uppercase;
 }
-
+ 
 .coupon-body {
     display: flex;
     align-items: center;
@@ -215,35 +223,35 @@ input:-webkit-autofill {
     justify-content: center;
     margin-bottom: 20px;
 }
-
+ 
 .brand-logo {
  
     width: 90px;
     height: 90px;
-
+ 
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+ 
 .brand-logo img{
     width: 100%;
     height: 100%;
     object-fit: contain;
-
+ 
 }
-
+ 
 .coupon-details h3 {
     font-size: 1rem;
     font-weight: 600;
 }
-
+ 
 .coupon-details h2 {
     font-size: 1.3rem;
     font-weight: 800;
     text-transform: uppercase;
 }
-
+ 
 /* Estilização do Código de Barras fictício */
 .barcode-wrapper {
     width: 100%;
@@ -252,7 +260,7 @@ input:-webkit-autofill {
     align-items: center;
     gap: 5px;
 }
-
+ 
 /* Gerando as linhas do código de barras usando gradiente CSS puro */
 .barcode {
     width: 80%;
@@ -269,22 +277,159 @@ input:-webkit-autofill {
         transparent 12px
     );
 }
-
+ 
 .barcode-text {
     font-size: 0.75rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     letter-spacing: 2px;
 }
-
+ 
 /* Responsividade Mobile */
-@media (max-width: 1024px) {
-    body { overflow-y: auto; }
-    .main-wrapper { flex-direction: column; height: auto; }
-    .sidebar { width: 100%; height: 180px; padding: 20px; }
-    .logo-box { max-width: 160px; }
-    .content-panel { width: 100%; padding: 30px 20px; border-left: none; }
-    .page-title { font-size: 2.5rem; }
-    .coupon-card { padding: 15px; }
-    .barcode { width: 95%; }
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+ 
+@media (max-width:768px){
+ 
+    body,
+    html{
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
+ 
+    /* Navbar */
+ 
+    .navbar{
+        overflow-x:auto;
+        overflow-y:hidden;
+ 
+        -webkit-overflow-scrolling:touch;
+    }
+ 
+    .navbar::-webkit-scrollbar{
+        display:none;
+    }
+ 
+    .nav-container{
+ 
+        display:flex;
+ 
+        flex-wrap:nowrap;
+ 
+        width:max-content;
+ 
+        min-width:100%;
+ 
+        justify-content:flex-start;
+ 
+        gap:25px;
+ 
+        padding:0 20px;
+    }
+ 
+    .navbar a{
+ 
+        white-space:nowrap;
+ 
+        flex-shrink:0;
+    }
+ 
+    /* Layout */
+ 
+    .main-wrapper{
+ 
+        flex-direction:column;
+ 
+        height:auto;
+    }
+ 
+    .sidebar{
+ 
+        width:100%;
+ 
+        height:auto;
+ 
+        padding:25px;
+    }
+ 
+    .logo-box{
+ 
+        max-width:180px;
+ 
+        margin:auto;
+    }
+ 
+    .content-panel{
+ 
+        width:100%;
+ 
+        border-left:none;
+ 
+        padding:30px 20px;
+    }
+ 
+    /* Textos */
+ 
+    .page-title{
+ 
+        font-size:2rem;
+    }
+ 
+    .panel-header h2{
+ 
+        font-size:1rem;
+    }
+ 
+    .page-instructions{
+ 
+        font-size:.85rem;
+ 
+        text-align:center;
+    }
+ 
+    /* Cupom */
+ 
+    .coupon-container{
+ 
+        width:100%;
+    }
+ 
+    .coupon-card{
+ 
+        padding:18px;
+    }
+ 
+    .coupon-body{
+ 
+        flex-direction:column;
+ 
+        gap:15px;
+ 
+        text-align:center;
+    }
+ 
+    .brand-logo{
+ 
+        width:70px;
+ 
+        height:70px;
+    }
+ 
+    .coupon-details h2{
+ 
+        font-size:1.1rem;
+    }
+ 
+    .barcode{
+ 
+        width:100%;
+    }
+ 
+    .btn-resgate{
+ 
+        width:100%;
+    }
+ 
 }
+ 
