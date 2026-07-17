@@ -226,23 +226,3 @@ body, html {
 }
 
 /* Responsividade Mobile */
-@media (max-width: 1024px) {
-    .nav-container {
-        justify-content: flex-start; 
-        gap: 20px;
-        overflow-x: auto; /* Permite rolar para os lados */
-        white-space: nowrap; 
-        padding: 0 20px 10px 20px; 
-        scrollbar-width: none; 
-    }
-
-    /* Esconde a barra de rolagem no Chrome, Safari e Opera */
-    .nav-container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .navbar a {
-        flex-shrink: 0; 
-    }
-}
-
