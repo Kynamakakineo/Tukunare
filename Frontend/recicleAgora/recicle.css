@@ -262,4 +262,23 @@ body, html {
     .logo-box { max-width: 180px; }
     .content-panel { width: 100%; padding: 30px 20px; border-left: none; }
     .recycle-form { grid-template-columns: 1fr; gap: 10px; }
+
+    .nav-container {
+        justify-content: flex-start; 
+        gap: 20px;
+        overflow-x: auto; /* Permite rolar para os lados */
+        white-space: nowrap; 
+        padding: 0 20px 10px 20px; 
+        scrollbar-width: none; 
+
+
+
+    .nav-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navbar a {
+        flex-shrink: 0; 
+    }
+}
 }
