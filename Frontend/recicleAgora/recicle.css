@@ -270,134 +270,30 @@ body, html {
     background-color: #3b873b;
     transform: translateY(-2px);
 }
- 
- 
-@media (max-width:768px){
- 
-    body,
-    html{
-        overflow-y:auto;
-        overflow-x:hidden;
+
+/* Responsividade para Telas Pequenas (Celulares) */
+@media (max-width: 1024px) {
+    body { overflow-y: auto; }
+    .main-wrapper { flex-direction: column; height: auto; }
+    .sidebar { width: 100%; height: 200px; padding: 20px; }
+    .logo-box { max-width: 180px; }
+    .content-panel { width: 100%; padding: 30px 20px; border-left: none; }
+    .recycle-form { grid-template-columns: 1fr; gap: 10px; }
+
+    .nav-container {
+        justify-content: flex-start; 
+        gap: 20px;
+        overflow-x: auto; /* Permite rolar para os lados */
+        white-space: nowrap; 
+        padding: 0 20px 10px 20px; 
+        scrollbar-width: none; 
     }
- 
-    /* Barra superior */
- 
-    .navbar{
- 
-        height:70px;
- 
-        overflow-x:auto;
-        overflow-y:hidden;
- 
-        -webkit-overflow-scrolling:touch;
+
+    .nav-container::-webkit-scrollbar {
+        display: none;
     }
- 
-    .navbar::-webkit-scrollbar{
-        display:none;
+
+    .navbar a {
+        flex-shrink: 0; 
     }
- 
-    .nav-container{
- 
-        width:max-content;
-        min-width:100%;
- 
-        display:flex;
-        flex-wrap:nowrap;
- 
-        justify-content:flex-start;
-        align-items:center;
- 
-        gap:25px;
- 
-        padding:0 20px;
-    }
- 
-    .navbar a{
- 
-        white-space:nowrap;
- 
-        font-size:15px;
- 
-        flex-shrink:0;
-    }
- 
-    /* Layout */
- 
-    .main-wrapper{
- 
-        flex-direction:column;
- 
-        height:auto;
-    }
- 
-    .sidebar{
- 
-        width:100%;
- 
-        height:auto;
- 
-        padding:30px 20px;
-    }
- 
-    .logo-box{
- 
-        max-width:180px;
- 
-        margin:auto;
-    }
- 
-    .content-panel{
- 
-        width:100%;
- 
-        border-left:none;
- 
-        padding:30px 20px;
-    }
- 
-    /* Títulos */
- 
-    .page-title{
- 
-        font-size:2rem;
-    }
- 
-    .page-subtitle{
- 
-        font-size:.9rem;
-    }
- 
-    /* Formulário */
- 
-    .recycle-form{
- 
-        display:grid;
- 
-        grid-template-columns:1fr;
- 
-        gap:20px;
-    }
- 
-    .form-column{
- 
-        width:100%;
-    }
- 
-    .form-group{
- 
-        width:100%;
-    }
- 
-    .recycle-form input,
-    .recycle-form select{
- 
-        width:100%;
-    }
- 
-    .btn-confirmar{
- 
-        width:100%;
-    }
- 
 }
- 
